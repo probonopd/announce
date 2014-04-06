@@ -1,0 +1,15 @@
+Package: announce
+Version: 1
+Filename: announce_1_ar71xx.ipk
+Size: 14546
+MD5Sum: 2af6dad7a519e0750a0ee2f248ce89fd
+SHA256sum: 834ada5e6f54120486c74133ad2a65faa5e3b44220c85f791772c4365257422f
+Description: Announce services to the network via Zeroconf/Bonjour
+Architecture: ar71xx
+Section: extra
+Priority: optional
+Maintainer: probono <probono@puredarwin.org>
+Homepage: https://github.com/probonopd/announce
+Depends: 
+Source: https://github.com/probonopd/announce
+

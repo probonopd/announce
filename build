@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#
+# Package a ipk from its (binary) parts
+# and create a feed for it
+#
+
+pushd $(dirname $0) > /dev/null ; HERE=$(pwd -P) ; popd > /dev/null
+
+"${HERE}/ipkg-build" "${HERE}/pkg_directory/" "${HERE}/feed"
+rm -r "${HERE}/feed/IPKG_BUILD"*
+"${HERE}/ipkg-make-index" "${HERE}/feed" > "${HERE}/feed/Packages"
