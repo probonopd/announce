@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Check whether certain services are running locally and announce them accordingly
+
+HOSTNAME=$(uci get system.@system[0].hostname)
+L=".local"
+ 
+launch() {
+  IPS=$(ifconfig | grep "inet addr" | cut -d ":" -f 2 | cut -d " " -f 1)
+  for IP in $IPS ; do
+    announce $HOSTNAME$L $IP $HOSTNAME $1$L $2 ''$3 >/dev/null 2>&1 &
+  done
+}
+ 
+killall announce >/dev/null 2>&1
+ 
+while true ; do
+  killall -9 announce >/dev/null 2>&1
+  pidof dropbear >/dev/null && launch "_ssh._tcp" 22
+  pidof uhttpd >/dev/null && launch "_http._tcp" 80 'path=/'
+  ls /usr/libexec/sftp-server >/dev/null && launch "_sftp-ssh._tcp" 22
+  sleep 15
+done

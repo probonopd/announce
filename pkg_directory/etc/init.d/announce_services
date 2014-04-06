@@ -1,0 +1,17 @@
+#!/bin/sh /etc/rc.common
+
+# This script should not have the same name as one of the binaries
+# that gets launched by it, otherwise it terminates itself rather
+# than shutting down cleanly.
+
+START=94
+STOP=1
+
+start() {
+	run-announce & # & is important, otherwise boot hangs
+}
+
+stop() {
+	killall run-announce >/dev/null 2>&1
+	killall announce >/dev/null 2>&1
+}
