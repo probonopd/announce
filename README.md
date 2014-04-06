@@ -36,3 +36,4 @@ TODO
 --
 
 * Make everything more CPU/RAM efficient, e.g., by moving parts of the bash code to C (pull requests welcome)
+* Write a proper OpenWrt patch and get it into the official OpenWrt repository
