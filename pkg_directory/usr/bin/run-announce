@@ -19,5 +19,6 @@ while true ; do
   pidof dropbear >/dev/null && launch "_ssh._tcp" 22
   pidof uhttpd >/dev/null && launch "_http._tcp" 80 'path=/'
   ls /usr/libexec/sftp-server >/dev/null && launch "_sftp-ssh._tcp" 22
+  ls /sys/bus/usb-serial/drivers/ftdi_sio/ttyUSB0 >/dev/null && launch "_arduino._tcp" 80 'board=nano'
   sleep 15
 done
