@@ -17,6 +17,7 @@ int done = 0;
 void term(int signum)
 {
     printf("\nReceived SIGTERM, exiting...\n");
+
     done = 1;
 }
 
@@ -55,6 +56,6 @@ int main(int argc, char *argv[]) {
 	while (!done) sleep(1);
 
 	mdnsd_stop(svr);
-
+        printf("Stopped\n");
 	return 0;
 }
