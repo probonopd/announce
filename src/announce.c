@@ -50,6 +50,17 @@ void term(int signum)
     done = 1;
 }
 
+// Find out the PID of a running process; 0 if it does not exist
+int pidof(char *name) {
+    char line[256];
+    char buf[256];
+    snprintf(buf, sizeof buf, "pidof '%s'", name);
+    FILE *cmd = popen(buf, "r"); // TODO: Is this a security hole?
+    fgets(line, 256, cmd);
+    pid_t pid = strtoul(line, NULL, 10);
+    pclose(cmd);
+    return (int)pid;
+}
 
 int main(int argc, char *argv[]) {
 
@@ -68,8 +79,9 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    /* NOTE: There is a bug: If the hostname is 6 characters or less, then it does not work.
-     */
+    /* 
+    NOTE: There is a bug: If the hostname is 6 characters or less, then it does not work.
+    */
 
     // room for name + .local + NULL
     char hostname[100 + 6];
@@ -144,27 +156,68 @@ int main(int argc, char *argv[]) {
 
     freeifaddrs(ifa);
 
-    const char *txt0[] = { "path=/", NULL };
-    struct mdns_service *svc0 = mdnsd_register_svc(svr,
+    printf("Announcing services. Press Ctrl-C to exit\n");
+
+    /*
+    TODO:
+    (1) Expand the known services or make configurable
+    (2) Check the actual ports
+    (3) Possibly do this in a loop to account for started/stopped services
+    */
+
+    if(pidof("uhttpd")) {
+        printf("* uhttpd is running; assuming port 80\n");
+        const char *txt0[] = { "path=/", NULL };
+        struct mdns_service *svc0 = mdnsd_register_svc(svr,
                                 hostname,
                                 "_http._tcp.local",
                                 80,
                                 NULL,
                                 txt0);
-    mdns_service_destroy(svc0);
+        mdns_service_destroy(svc0);
+    } else {
+        printf("- uhttpd is NOT running\n");
+    } 
 
-    const char *txt1[] = { "", NULL };
-    struct mdns_service *svc1 = mdnsd_register_svc(svr,
+    if(pidof("dropbear")) {
+        printf("* dropbear is running; assuming port 22\n");
+        const char *txt1[] = { "", NULL };
+        struct mdns_service *svc1 = mdnsd_register_svc(svr,
                                 hostname,
                                 "_ssh._tcp.local",
                                 22,
                                 NULL,
                                 txt1);
-    mdns_service_destroy(svc1);
+        mdns_service_destroy(svc1);
+    } else {
+        printf("- dropbear is NOT running\n");
+    } 
 
-    printf("Announcing services. Press Ctrl-C to exit\n");
+    if(access("/usr/libexec/sftp-server", F_OK) != -1) {
+        printf("* /usr/libexec/sftp-server exists; assuming port 22\n");
+        const char *txt2[] = { "", NULL };
+        struct mdns_service *svc2 = mdnsd_register_svc(svr,
+                                hostname,
+                                "_sftp-ssh._tcp.local",
+                                22,
+                                NULL,
+                                txt2);
+        mdns_service_destroy(svc2);
+    } else {
+        printf("- /usr/libexec/sftp-server does not exist\n");
+    }
 
-    while (!done) sleep(1);
+    /* 
+    if(access("/sys/bus/usb-serial/drivers/ftdi_sio/ttyUSB0", F_OK) != -1) {
+        printf("* /sys/bus/usb-serial/drivers/ftdi_sio/ttyUSB0 exists; assuming Arduino\n");
+    } else {
+        printf("- /sys/bus/usb-serial/drivers/ftdi_sio/ttyUSB0 does not exist\n");
+    }
+    */
+
+    while (!done) {
+        sleep(1);
+    }
 
     mdnsd_stop(svr);
     printf("Stopped announcing services.\n");
