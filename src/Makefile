@@ -15,7 +15,7 @@ endif
 
 BIN=announce
 
-LIBTINYSVCMDNS_OBJS = mdns.o mdnsd.o
+LIBTINYSVCMDNS_OBJS = tinysvcmdns.o
 
 .PHONY: all clean
 
@@ -24,13 +24,10 @@ all: $(BIN) libtinysvcmdns.a
 clean:
 	-$(RM) *.o
 	-$(RM) *.bin
-	-$(RM) mdns
 	-$(RM) $(BIN)
 	-$(RM) libtinysvcmdns.a
 
-mdns: mdns.o
-
-mdnsd: mdns.o mdnsd.o
+tinysvcmdns: tinysvcmdns.o
 
 announce: announce.o libtinysvcmdns.a
 

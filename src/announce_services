@@ -8,10 +8,9 @@ START=94
 STOP=1
 
 start() {
-	run-announce & # & is important, otherwise boot hangs
+	announce & # & is important, otherwise boot hangs
 }
 
 stop() {
-	killall run-announce >/dev/null 2>&1
 	killall announce >/dev/null 2>&1
 }
