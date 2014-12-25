@@ -7,12 +7,9 @@ Description
 --
 announce is a minimalistic way to announce ssh and http services that are running on an OpenWrt machine by default to the network with Zeroconf/Bonjour. It is specifically targeted toward embedded systems, where a full avahi-daemon is too much overhead.
 
-Installation
+Building
 --
-I have precompiled announce for ar71xx architecture. You can find the ipk package inside the feed in this repository.
-
-Simply download it and run
-opkg install announce_1_ar71xx.ipk on the target machine to install it.
+To build, pull this repository into the ```package/``` subdirectory in the OpenWrt SDK, then run ```scripts/feeds install libpthread``` and finally ```make V=s```. This will create ./bin/ar71xx/packages/base/announce_1.0-1_ar71xx.ipk (depending on your architecture).
  
 TODO
 --
