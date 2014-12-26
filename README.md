@@ -9,7 +9,7 @@ This announces services such as ssh, sftp, and http running on the local machine
 
 Building
 --
-To build, pull this repository into the ```package/``` subdirectory in the OpenWrt SDK, then run ```scripts/feeds install libpthread``` and finally ```make V=s```. This will create ./bin/ar71xx/packages/base/announce_1.0-1_ar71xx.ipk (depending on your architecture)
+To build, pull this repository into the ```package/``` subdirectory in the OpenWrt SDK with ```git clone https://github.com/probonopd/announce.git```, then run ```scripts/feeds install libpthread``` and finally ```make V=s```. This will create ./bin/ar71xx/packages/base/announce_1.0-1_ar71xx.ipk (depending on your architecture)
  
 TODO
 --
