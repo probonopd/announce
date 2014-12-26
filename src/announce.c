@@ -79,24 +79,22 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    /* 
-    NOTE: There is a bug: If the hostname is 6 characters or less, then it does not work.
-    */
-
     // room for name + .local + NULL
     char hostname[100 + 6];
     gethostname(hostname, 99);
-    // according to POSIX, this may be truncated without a final NULL
+    // according to POSIX, this may be truncated without a final NULL !
     hostname[99] = 0;
+
+    // readablename stays without ".local"
+    char readablename[100 + 6];
+    strcat(readablename, hostname);
+    printf("-->%s\n", readablename);
 
     // will not work if the hostname doesn't end in .local
     char *hostend = hostname + strlen(hostname);
-    if ((strlen(hostname) > 6) &&
-        strcmp(hostend - 6, ".local"))
-    {
-        strcat(hostname, ".local");
+    if ((strlen(hostname) < strlen(".local")) || (strcmp(hostend - 6, ".local")!=0)) {
+      strcat(hostname, ".local");
     }
-
 
     if (getifaddrs(&ifalist) < 0)
     {
@@ -169,7 +167,7 @@ int main(int argc, char *argv[]) {
         printf("* uhttpd is running; assuming port 80\n");
         const char *txt0[] = { "path=/", NULL };
         struct mdns_service *svc0 = mdnsd_register_svc(svr,
-                                hostname,
+                                readablename,
                                 "_http._tcp.local",
                                 80,
                                 NULL,
@@ -183,7 +181,7 @@ int main(int argc, char *argv[]) {
         printf("* dropbear is running; assuming port 22\n");
         const char *txt1[] = { "", NULL };
         struct mdns_service *svc1 = mdnsd_register_svc(svr,
-                                hostname,
+                                readablename,
                                 "_ssh._tcp.local",
                                 22,
                                 NULL,
@@ -197,7 +195,7 @@ int main(int argc, char *argv[]) {
         printf("* /usr/libexec/sftp-server exists; assuming port 22\n");
         const char *txt2[] = { "", NULL };
         struct mdns_service *svc2 = mdnsd_register_svc(svr,
-                                hostname,
+                                readablename,
                                 "_sftp-ssh._tcp.local",
                                 22,
                                 NULL,
