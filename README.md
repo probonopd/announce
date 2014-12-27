@@ -39,7 +39,7 @@ export PATH=/home/irmagic/projects/openwrt_barrier_breaker/OpenWrt-SDK-*/local/u
 
 make V=s
 ```
-Check the '''.travis.yml''' file to see how this is compiled on http://travis-ci.org automatically.
+Check the ```.travis.yml``` file to see how this is compiled on http://travis-ci.org automatically.
 
 TODO
 --
