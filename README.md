@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/probonopd/announce.svg)](https://travis-ci.org/probonopd/announce)
+
 announce
 ========
 
