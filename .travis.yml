@@ -8,23 +8,20 @@ notifications:
 language: c
 compiler: gcc
 env:
+- PACKAGE=announce
 - SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
 install:
-- mkdir -p local
-- cd local
+- mkdir -p $TRAVIS_BUILD_DIR/local ; cd $TRAVIS_BUILD_DIR/local
 - wget "http://us.archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.1.6-1_amd64.deb"
 - dpkg -x *.deb .
-- cd ..
-- mkdir -p cache
-- cd cache
+- mkdir -p $TRAVIS_BUILD_DIR/cache ; cd $TRAVIS_BUILD_DIR/cache
 - wget -c $SDK_URL
-- mkdir -p $TRAVIS_BUILD_DIR/sdk 
-- cd $TRAVIS_BUILD_DIR/sdk
+- mkdir -p $TRAVIS_BUILD_DIR/sdk ; cd $TRAVIS_BUILD_DIR/sdk
 - tar xjf $TRAVIS_BUILD_DIR/cache/OpenWrt-SDK*.tar.bz2 -C .
 - cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
-- mkdir package/announce
-- ln -s $TRAVIS_BUILD_DIR/Makefile package/announce/
-- ln -s $TRAVIS_BUILD_DIR/src package/announce/
+- mkdir package/$PACKAGE
+- ln -s $TRAVIS_BUILD_DIR/Makefile package/$PACKAGE/
+- ln -s $TRAVIS_BUILD_DIR/src package/$PACKAGE/
 script:
 - export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
 - cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
@@ -38,7 +35,7 @@ deploy:
     secure: L5yTlbnfbQ1FWuvI/33nv2vSZNj3fAHPdQ2ORNB5lkrzrzdEDX66kLyygLVpIUm0ZeFhlKAujrXFh5w9Gu9v4E3fuhVBZZ13ZDuopyTWmJDTu/xGbb/10WlsixzXZqAgYwvv6XxPQ6CvEUV01lppS1+787bAbJhpJKUYebiD8H8=
   skip_cleanup: true
   file_glob: true
-  file: "sdk/OpenWrt-SDK-*/bin/ar71xx/packages/announce*.ipk"
+  file: "sdk/OpenWrt-SDK-*/bin/ar71xx/packages/$PACKAGE*.ipk"
   on:
     branch: release
     all_branches: true
