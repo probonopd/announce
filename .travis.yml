@@ -35,7 +35,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: secure: L5yTlbnfbQ1FWuvI/33nv2vSZNj3fAHPdQ2ORNB5lkrzrzdEDX66kLyygLVpIUm0ZeFhlKAujrXFh5w9Gu9v4E3fuhVBZZ13ZDuopyTWmJDTu/xGbb/10WlsixzXZqAgYwvv6XxPQ6CvEUV01lppS1+787bAbJhpJKUYebiD8H8=
+    secure: L5yTlbnfbQ1FWuvI/33nv2vSZNj3fAHPdQ2ORNB5lkrzrzdEDX66kLyygLVpIUm0ZeFhlKAujrXFh5w9Gu9v4E3fuhVBZZ13ZDuopyTWmJDTu/xGbb/10WlsixzXZqAgYwvv6XxPQ6CvEUV01lppS1+787bAbJhpJKUYebiD8H8=
   skip_cleanup: true
   file_glob: true
   file: "sdk/OpenWrt-SDK-*/bin/*"
