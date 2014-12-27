@@ -9,11 +9,12 @@ before_install:
 install:
 - mkdir sdk && cd sdk
 - curl $SDK_URL | tar -xj --strip-components=1
-- ln -s $TRAVIS_BUILD_DIR/announce $TRAVIS_BUILD_DIR/sdk/package/announce
+- mkdir $TRAVIS_BUILD_DIR/sdk/package/announce
+- ln -s $TRAVIS_BUILD_DIR/Makefile $TRAVIS_BUILD_DIR/src $TRAVIS_BUILD_DIR/sdk/package/announce/
 script:
 - cd $TRAVIS_BUILD_DIR/sdk
 - "./scripts/feeds update packages"
-- "./scripts/feeds install bzip2"
+- "./scripts/feeds install libpthread"
 - make package/announce/download V=99
 - make package/announce/prepare V=99
 - make package/announce/compile V=99
