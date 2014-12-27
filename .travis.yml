@@ -1,3 +1,8 @@
+sudo: false
+cache:
+  bundler: true
+  directories:
+  - cache/
 notifications:
   email: false
 language: c
@@ -7,8 +12,10 @@ env:
 before_install:
 - sudo apt-get install -y ccache
 install:
-- mkdir sdk && cd sdk
-- curl $SDK_URL | tar -xj --strip-components=1
+- mkdir cache && cd cache
+- wget -C $SDK_URL
+- mkdir ../sdk && cd ../sdk
+- tar xjf ../cache/OpenWrt-SDK-tar.bz2
 - mkdir $TRAVIS_BUILD_DIR/sdk/package/announce
 - ln -s $TRAVIS_BUILD_DIR/Makefile $TRAVIS_BUILD_DIR/sdk/package/announce/
 - ln -s $TRAVIS_BUILD_DIR/src $TRAVIS_BUILD_DIR/sdk/package/announce/
