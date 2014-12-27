@@ -38,7 +38,6 @@ deploy:
     secure:
   skip_cleanup: true
   file_glob: true
-  file: "sdk/OpenWrt-SDK-*/bin/ar71xx/packages/announce*.ipk"
+  file: "sdk/OpenWrt-SDK-*/bin/ar71xx/packages/*"
   on:
-    tags: true
     all_branches: true
