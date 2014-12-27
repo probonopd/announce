@@ -1,0 +1,30 @@
+notifications:
+  email: false
+language: c
+compiler: gcc
+env:
+- SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07-rc3/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
+before_install:
+- sudo apt-get install -y ccache
+install:
+- mkdir sdk && cd sdk
+- curl $SDK_URL | tar -xj --strip-components=1
+- ln -s $TRAVIS_BUILD_DIR/announce $TRAVIS_BUILD_DIR/sdk/package/announce
+script:
+- cd $TRAVIS_BUILD_DIR/sdk
+- "./scripts/feeds update packages"
+- "./scripts/feeds install bzip2"
+- make package/announce/download V=99
+- make package/announce/prepare V=99
+- make package/announce/compile V=99
+- ls -la $TRAVIS_BUILD_DIR/sdk/bin/ar71xx/packages/
+deploy:
+  provider: releases
+  api_key:
+    secure:
+  skip_cleanup: true
+  file_glob: true
+  file: "sdk/bin/ar71xx/packages/announce*.ipk"
+  on:
+    tags: true
+    all_branches: true
