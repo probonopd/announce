@@ -13,7 +13,7 @@ install:
 - mkdir -p cache && cd cache
 - wget -c $SDK_URL
 - mkdir ../sdk && cd ../sdk
-- tar xjf ../cache/OpenWrt-SDK-*tar.bz2
+- tar xfj ../cache/OpenWrt-SDK*.tar.bz2
 - mkdir $TRAVIS_BUILD_DIR/sdk/package/announce
 - ln -s $TRAVIS_BUILD_DIR/Makefile $TRAVIS_BUILD_DIR/sdk/package/announce/
 - ln -s $TRAVIS_BUILD_DIR/src $TRAVIS_BUILD_DIR/sdk/package/announce/
