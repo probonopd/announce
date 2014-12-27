@@ -11,10 +11,38 @@ This announces services such as ssh, sftp, and http running on the local machine
 
 Building
 --
-To build, pull this repository into the ```package/``` subdirectory in the OpenWrt SDK with ```git clone https://github.com/probonopd/announce.git```, then run ```scripts/feeds install libpthread``` and finally ```make V=s```. This will create ./bin/ar71xx/packages/base/announce_1.0-1_ar71xx.ipk (depending on your architecture)
- 
+To build, pull this repository into the ```package/``` subdirectory in the OpenWrt SDK with ```git clone https://github.com/probonopd/announce.git```, then run ```scripts/feeds install libpthread``` and finally ```make V=s```. This will create ./bin/ar71xx/packages/base/announce_1.0-1_ar71xx.ipk (depending on your architecture).
+
+Here is a detailed log of how this can be successfully compiled on a 64-bit host on which I do not have root rights:
+
+```
+wget https://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
+tar xfj OpenWrt-SDK-*.tar.bz2
+cd OpenWrt-SDK-*/
+
+cd package/
+git clone https://github.com/probonopd/announce.git
+cd -
+
+scripts/feeds update packages
+
+# This is ONLY needed for trunk but NOT for barrier_breaker
+ls ./staging_dir/toolchain-*/lib/libpthread.so.0 || scripts/feeds install libpthread
+
+# The following is ONLY needed for barrier_breaker but NOT for trunk
+mkdir -p local ; cd local
+wget "http://us.archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.1.6-1_amd64.deb"
+ar x ccache_3.1.6-1_amd64.deb 
+tar xfz data.tar.gz
+cd -
+export PATH=/home/irmagic/projects/openwrt_barrier_breaker/OpenWrt-SDK-*/local/usr/bin/:$PATH
+
+make V=s
+```
+Check the '''.travis.yml''' file to see how this is compiled on http://travis-ci.org automatically.
+
 TODO
 --
 
 * Find a good way to check which services are running and act accordingly (in a loop); currently ssh and http is (always) announced
-* Write a proper OpenWrt Makefile; then write a patch and get it into the official OpenWrt repository
+* Write a proper OpenWrt patch and get it into the official OpenWrt repository
