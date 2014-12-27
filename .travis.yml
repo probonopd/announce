@@ -9,8 +9,6 @@ language: c
 compiler: gcc
 env:
 - SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07-rc3/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
-before_install:
-- sudo apt-get install -y ccache
 install:
 - mkdir cache && cd cache
 - wget -C $SDK_URL
