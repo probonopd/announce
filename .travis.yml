@@ -31,6 +31,8 @@ script:
 - "./scripts/feeds install libpthread"
 - make V=s
 - ls -la $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/ar71xx/packages/
+before_deploy:
+  git fetch --tags
 deploy:
   provider: releases
   api_key:
@@ -39,5 +41,5 @@ deploy:
   file_glob: true
   file: "sdk/OpenWrt-SDK-*/bin/ar71xx/packages/$PACKAGE*.ipk"
   on:
-    branch: release
+    tags: true
     all_branches: true
