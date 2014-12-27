@@ -10,7 +10,11 @@ compiler: gcc
 env:
 - SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07-rc3/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
 install:
-- apt-get install ccache
+- mkdir -p local
+- cd local
+- wget "http://us.archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.1.6-1_amd64.deb"
+- dpkg -x *.deb .
+- cd ..
 - mkdir -p cache
 - cd cache
 - wget -c $SDK_URL
@@ -22,6 +26,7 @@ install:
 - ln -s $TRAVIS_BUILD_DIR/Makefile package/announce/
 - ln -s $TRAVIS_BUILD_DIR/src package/announce/
 script:
+- export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
 - cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
 - "./scripts/feeds update packages"
 - "./scripts/feeds install libpthread"
