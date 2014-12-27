@@ -8,7 +8,7 @@ notifications:
 language: c
 compiler: gcc
 env:
-- SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07-rc3/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
+- SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
 install:
 - mkdir -p local
 - cd local
@@ -35,9 +35,9 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure:
+    secure: secure: L5yTlbnfbQ1FWuvI/33nv2vSZNj3fAHPdQ2ORNB5lkrzrzdEDX66kLyygLVpIUm0ZeFhlKAujrXFh5w9Gu9v4E3fuhVBZZ13ZDuopyTWmJDTu/xGbb/10WlsixzXZqAgYwvv6XxPQ6CvEUV01lppS1+787bAbJhpJKUYebiD8H8=
   skip_cleanup: true
   file_glob: true
-  file: "sdk/OpenWrt-SDK-*/bin/ar71xx/packages/*"
+  file: "sdk/OpenWrt-SDK-*/bin/*"
   on:
     all_branches: true
