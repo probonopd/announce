@@ -31,10 +31,11 @@ install:
 script:
 - export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
 - cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
-- ./scripts/feeds update packages
+- ./scripts/feeds update packages >/dev/null
 - ./scripts/feeds install libpthread
 - make V=s
 - ls -la $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/*/packages/
+- find $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/
 before_deploy:
   git fetch --tags
 deploy:
