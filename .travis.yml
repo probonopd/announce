@@ -35,8 +35,8 @@ script:
 - ./scripts/feeds update packages >/dev/null
 - ./scripts/feeds install libpthread
 - make V=s
-- ls -la $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/*/packages/
 - find $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/
+- find . -name *.ipk -exec cp {} $TRAVIS_BUILD_DIR \;
 before_deploy:
   git fetch --tags
 deploy:
@@ -45,7 +45,7 @@ deploy:
     secure: L5yTlbnfbQ1FWuvI/33nv2vSZNj3fAHPdQ2ORNB5lkrzrzdEDX66kLyygLVpIUm0ZeFhlKAujrXFh5w9Gu9v4E3fuhVBZZ13ZDuopyTWmJDTu/xGbb/10WlsixzXZqAgYwvv6XxPQ6CvEUV01lppS1+787bAbJhpJKUYebiD8H8=
   skip_cleanup: true
   file_glob: true
-  file: $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/*/packages/*.ipk
+  file: $TRAVIS_BUILD_DIR/*.ipk
   on:
     tags: true
     all_branches: true
