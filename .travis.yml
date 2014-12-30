@@ -12,6 +12,7 @@ env:
     - PACKAGE=announce
   matrix:
     - SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
+    - SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07/ramips/rt305x/OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
 install:
 - mkdir -p $TRAVIS_BUILD_DIR/local ; cd $TRAVIS_BUILD_DIR/local
 - wget "http://us.archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.1.6-1_amd64.deb"
@@ -30,7 +31,7 @@ script:
 - ./scripts/feeds update packages
 - ./scripts/feeds install libpthread
 - make V=s
-- ls -la $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/ar71xx/packages/
+- ls -la $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/*/packages/
 before_deploy:
   git fetch --tags
 deploy:
@@ -39,7 +40,7 @@ deploy:
     secure: L5yTlbnfbQ1FWuvI/33nv2vSZNj3fAHPdQ2ORNB5lkrzrzdEDX66kLyygLVpIUm0ZeFhlKAujrXFh5w9Gu9v4E3fuhVBZZ13ZDuopyTWmJDTu/xGbb/10WlsixzXZqAgYwvv6XxPQ6CvEUV01lppS1+787bAbJhpJKUYebiD8H8=
   skip_cleanup: true
   file_glob: true
-  file: $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/ar71xx/packages/*.ipk
+  file: $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/*/packages/*.ipk
   on:
     tags: true
     all_branches: true
