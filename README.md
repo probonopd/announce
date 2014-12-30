@@ -1,13 +1,16 @@
-[![Build Status](https://travis-ci.org/probonopd/announce.svg)](https://travis-ci.org/probonopd/announce)
-
 announce
 ========
+[![Build Status](https://travis-ci.org/probonopd/announce.svg)](https://travis-ci.org/probonopd/announce)
 
 Announce services on the network with Zeroconf/Bonjour with minimal overhead
 
 Description
 --
 This announces services such as ssh, sftp, and http running on the local machine to the network. Specifically geared toward embedded systems running OpenWrt. It is based on tinysvcmdns.
+
+Downloading
+--
+Precompiled binaries for common architectures can be found on https://github.com/probonopd/announce/releases - check the ```.travis.yml``` file to see how this is compiled on http://travis-ci.org automatically. Please file an issue if you need addional architectures and/or OpenWrt versions.
 
 Building
 --
