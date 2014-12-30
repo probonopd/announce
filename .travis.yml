@@ -21,8 +21,8 @@ install:
 - mkdir -p $TRAVIS_BUILD_DIR/cache ; cd $TRAVIS_BUILD_DIR/cache
 - wget -c $SDK_URL
 - mkdir -p $TRAVIS_BUILD_DIR/sdk ; cd $TRAVIS_BUILD_DIR/sdk
-- file $TRAVIS_BUILD_DIR/cache/OpenWrt-SDK*.tar.bz2
-- tar xjvf $TRAVIS_BUILD_DIR/cache/OpenWrt-SDK*.tar.bz2
+- export FILE=$(basename $TRAVIS_BUILD_DIR/cache/OpenWrt-SDK*.tar.bz2)
+- tar xjvf $FILE
 - cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
 - mkdir package/$PACKAGE
 - ln -s $TRAVIS_BUILD_DIR/Makefile package/$PACKAGE/
