@@ -1,16 +1,13 @@
 #!/bin/sh /etc/rc.common
 
-# This script should not have the same name as one of the binaries
-# that gets launched by it, otherwise it terminates itself rather
-# than shutting down cleanly.
-
 START=94
 STOP=1
 
-start() {
-	announce & # & is important, otherwise boot hangs
-}
+USE_PROCD=1
+PROG=/usr/sbin/announce
 
-stop() {
-	killall announce >/dev/null 2>&1
+start_service() {
+	procd_open_instance
+	procd_set_param command "$PROG"
+	procd_close_instance
 }
