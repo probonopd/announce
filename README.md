@@ -1,6 +1,5 @@
-announce
+announce [![Build Status](https://travis-ci.org/probonopd/announce.svg)](https://travis-ci.org/probonopd/announce)
 ========
-[![Build Status](https://travis-ci.org/probonopd/announce.svg)](https://travis-ci.org/probonopd/announce)
 
 Announce services on the network with Zeroconf/Bonjour with minimal overhead
 
