@@ -43,7 +43,7 @@ define Package/announce/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/announce $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/announce_services $(1)/etc/init.d/announce_services
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/announce.initscript $(1)/etc/init.d/announce
 endef
 
 $(eval $(call BuildPackage,announce))
