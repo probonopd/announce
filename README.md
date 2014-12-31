@@ -6,7 +6,9 @@ Announce services on the network with Zeroconf/Bonjour with minimal overhead
 
 Description
 --
-This announces services such as ssh, sftp, and http running on the local machine to the network. Specifically geared toward embedded systems running OpenWrt. It is based on tinysvcmdns.
+This announces services such as ssh, sftp, and http running on the local machine to the network. Specifically geared toward embedded systems running OpenWrt. It is based on tinysvcmdns. 
+
+Note that this could become obsolete once OpenWrt completes mdns and integrates it fully into the system; however, so far it is not well documented and I could not figure out how to use it yet. It also appears not to be finished yet. http://git.openwrt.org/?p=project/mdnsd.git;a=tree;
 
 Downloading
 --
