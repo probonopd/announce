@@ -39,7 +39,7 @@ opkg install ${PACKAGE}
 </pre></body></html>
 EOF
 
-DATE=$(date "+%Y-%m-%d at %H:%M:%S")
+DATE=$(date "+%Y-%m-%d")
 cat > README.md <<EOF
 OpenWrt repository for ${PACKAGE}
 ========
@@ -55,7 +55,7 @@ opkg install ${PACKAGE}
 EOF
 
 git add -A
-# git pull
+git pull
 git commit -a -m "Deploy Travis build $TRAVIS_BUILD_NUMBER to gh-pages"
 git push -fq origin gh-pages > /dev/null 2>&1 || exit 1 # so that the key does not leak to the logs in case of errors
 echo -e "Uploaded files to gh-pages\n"
