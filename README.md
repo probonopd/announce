@@ -47,6 +47,5 @@ Check the ```.travis.yml``` file to see how this is compiled on http://travis-ci
 
 TODO
 --
-
 * Find a good way to check which services are running and act accordingly (in a loop); currently ssh and http is (always) announced
 * Write a proper OpenWrt patch and get it into the official OpenWrt repository
