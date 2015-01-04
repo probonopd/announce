@@ -1,7 +1,7 @@
 OpenWrt repository for announce
 ========
 
-Binaries built from this repository on 2015-01-04 at 19:03:12 can be downloaded from http://probonopd.github.io/announce/.
+Binaries built from this repository on 2015-01-04 at 19:03:17 can be downloaded from http://probonopd.github.io/announce/.
 
 To install the announce package, run
 ```
