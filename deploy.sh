@@ -46,14 +46,14 @@ OpenWrt repository for ${PACKAGE}
 Binaries built from this repository can be downloaded from http://${USER}.github.io/${REPO}/.
 
 To install the ${PACKAGE} package, run
-```
+\`\`\`
 echo "src/gz announce http://${USER}.github.io/${PACKAGE}" >> /etc/opkg.conf
 opkg update
 opkg install ${PACKAGE}
-``
+\`\`\`
 EOF
 
-git add .
+git add -A
 # git pull
 git commit -a -m "Deploy packages to gh-pages branch"
 git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
