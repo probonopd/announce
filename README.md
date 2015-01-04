@@ -11,7 +11,15 @@ Note that this could become obsolete once OpenWrt completes **mdns** and integra
 
 Downloading
 --
-Precompiled binaries for common architectures can be found on https://github.com/probonopd/announce/releases - check the ```.travis.yml``` file to see how this is compiled on http://travis-ci.org automatically. Please file an issue if you need addional architectures and/or OpenWrt versions.
+Binaries built from this repository can be downloaded from http://probonopd.github.io/announce/.
+
+To install the announce package, run
+```
+echo "src/gz announce http://probonopd.github.io/announce" >> /etc/opkg.conf
+opkg update
+opkg install announce
+```
+Check the ```.travis.yml``` file to see how this is compiled on http://travis-ci.org automatically. Please file an issue if you need addional architectures and/or OpenWrt versions.
 
 Building
 --
