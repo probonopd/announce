@@ -20,7 +20,7 @@
 
 cd $TRAVIS_BUILD_DIR
 
-git clone https://github.com/probonopd/announce.git --branch gh-pages --single-branch gh-pages 
+git clone https://github.com/${USER}/${REPO}.git --branch gh-pages --single-branch gh-pages 
 
 cd gh-pages
 git config user.name "Travis CI"
@@ -39,4 +39,5 @@ opkg install ${PACKAGE}
 EOF
 git add .
 git commit -m "Deploy packages to gh-pages branch"
+find .
 git push --force --quiet "https://${TOKEN}@$github.com/${USER}/${REPO}.git" master:gh-pages > /dev/null 2>&1
