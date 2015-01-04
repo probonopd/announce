@@ -28,7 +28,7 @@ git config user.email "travis@noreply"
 
 cp ../*ipk .
 ../sdk/OpenWrt-SDK-*/scripts/ipkg-make-index.sh . > Packages
-gzip -k Packages
+gzip -c Packages > Packages.gz
 
 cat > index.html <<EOF
 <html><body><pre>
