@@ -1,0 +1,60 @@
+Package: announce
+Version: 1.0-1
+Depends: libc, libpthread
+Source: package/announce
+Section: utils
+Architecture: ar71xx
+Installed-Size: 7513
+Filename: announce_1.0-1_ar71xx.ipk
+Size: 8139
+MD5Sum: 98a76ae52acccef5f30754bef2ed9d49
+SHA256sum: f9a390d1ee3a24beff821958ef1d07c70993c6b6898eb942f2555287d2cc8141
+Description:  Announce services on the network with Zeroconf/Bonjour.
+ This announces services such as ssh, sftp, and http running on the local machine
+ to the network.
+
+Package: announce
+Version: 1.0-1
+Depends: libc, libpthread
+Source: package/announce
+Section: utils
+Architecture: kirkwood
+Installed-Size: 8311
+Filename: announce_1.0-1_kirkwood.ipk
+Size: 8942
+MD5Sum: b1ef2b522575bce1026913e6b1b85963
+SHA256sum: e651fc35e6ff3010b9d59c8f668409bcbaff1c157cb279459974ed98108cac8f
+Description:  Announce services on the network with Zeroconf/Bonjour.
+ This announces services such as ssh, sftp, and http running on the local machine
+ to the network.
+
+Package: announce
+Version: 1.0-1
+Depends: libc, libpthread
+Source: package/announce
+Section: utils
+Architecture: lantiq
+Installed-Size: 7508
+Filename: announce_1.0-1_lantiq.ipk
+Size: 8130
+MD5Sum: ca5d044e815bf0d9faaf11e187e4ae54
+SHA256sum: 59ca54d95318a1d0eae5a2cd7589583f881d6a32bfc209a962add041b3eaef4e
+Description:  Announce services on the network with Zeroconf/Bonjour.
+ This announces services such as ssh, sftp, and http running on the local machine
+ to the network.
+
+Package: announce
+Version: 1.0-1
+Depends: libc, libpthread
+Source: package/announce
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 9091
+Filename: announce_1.0-1_ramips_24kec.ipk
+Size: 9694
+MD5Sum: 6787334dbbb306caae557c1aac0b6e95
+SHA256sum: 214606ab46eb8925e54626f468965d1589206df47ffc11b2eb6a1db36ba298c1
+Description:  Announce services on the network with Zeroconf/Bonjour.
+ This announces services such as ssh, sftp, and http running on the local machine
+ to the network.
+
