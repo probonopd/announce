@@ -11,7 +11,7 @@ env:
   global:
     - PACKAGE=announce
     - USER=probonopd
-    - REPO=anounce
+    - REPO=announce
     - secure: "O0RaGjWTnxfra87BOE2aoG3Ez7zrkdTGmUJn+cT7FqXsxWWhUEl1Ip676P5c0kbJKyOLg975rr9dFvgJsAOpMFsLDYHAyfTAw3Ov07O+89tTxSsrIlWWUkrAk9iFLbfjDvp8VUnQZS3DKxnR/652hPnQOvbIRD+1qPMd04LEQms="
   matrix:
     - SDK_URL=https://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-SDK-ar71xx-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
