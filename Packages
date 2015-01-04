@@ -34,11 +34,11 @@ Depends: libc, libpthread
 Source: package/announce
 Section: utils
 Architecture: lantiq
-Installed-Size: 7605
+Installed-Size: 7600
 Filename: announce_1.0-1_lantiq.ipk
-Size: 8227
-MD5Sum: dcf0e03da7a0583c3299842bff651574
-SHA256sum: b989e55c68a5885fbdf24976a747ca3a89b4e1fa7d9a7e6aa616d4f964654eac
+Size: 8223
+MD5Sum: fed97a046285c5976411081576ae7b62
+SHA256sum: e90c7342de0447114bd5c8bb063df78f2d223604546a0776947e7518539bae33
 Description:  Announce services on the network with Zeroconf/Bonjour.
  This announces services such as ssh, sftp, and http running on the local machine
  to the network.
