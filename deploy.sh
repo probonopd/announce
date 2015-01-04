@@ -18,8 +18,6 @@
 #  - secure: RIbIq8hI153J5trRa........
 #
 
-set -vx
-
 cd /tmp/
 
 git clone https://github.com/${USER}/${REPO}.git --branch gh-pages --single-branch gh-pages 
@@ -42,5 +40,6 @@ EOF
 git add .
 git commit -m "Deploy packages to gh-pages branch"
 find .
-git push --force --quiet https://${TOKEN}@github.com/${USER}/${REPO}.git master:gh-pages > /dev/null 2>&1
+# 2>&1 so that the key does not leak to the logs in case of errors
+git push --force --quiet https://${TOKEN}@github.com/${USER}/${REPO}.git master:gh-pages > /dev/null 2>&1 || exit 1
 cd -
