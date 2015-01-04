@@ -22,9 +22,9 @@ set -vx
 
 cd $TRAVIS_BUILD_DIR
 
-git clone https://github.com/${USER}/${REPO}.git --branch gh-pages --single-branch gh-pages 
+git clone "https://${TOKEN}@$github.com/${USER}/${REPO}.git" --branch gh-pages --single-branch gh-pages 
 
-cd gh-pages
+cd gh-pages || exit 1
 git config user.name "Travis CI"
 git config user.email "travis@noreply"
 
@@ -42,4 +42,4 @@ EOF
 git add .
 git commit -m "Deploy packages to gh-pages branch"
 find .
-# git push --force --quiet "https://${TOKEN}@$github.com/${USER}/${REPO}.git" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${TOKEN}@$github.com/${USER}/${REPO}.git" master:gh-pages > /dev/null 2>&1
