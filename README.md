@@ -18,6 +18,9 @@ To install the announce package, run
 echo "src/gz announce http://probonopd.github.io/announce" >> /etc/opkg.conf
 opkg update
 opkg install announce
+# Enable and start the service with:
+/etc/init.d/announce enable
+/etc/init.d/announce start
 ```
 Check the ```.travis.yml``` file to see how this is compiled on http://travis-ci.org automatically. Please file an issue if you need addional architectures and/or OpenWrt versions.
 
