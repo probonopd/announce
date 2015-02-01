@@ -6,9 +6,9 @@ Section: utils
 Architecture: ar71xx
 Installed-Size: 7602
 Filename: announce_1.0-1_ar71xx.ipk
-Size: 8224
-MD5Sum: 5bdbc819ba5cfb1b20c5e8a2525f7de2
-SHA256sum: 390d54edea5490ca5ba75e0f5d0a2efe3495a8fb7f6bc3a5f0cf6d8ce146badc
+Size: 8226
+MD5Sum: 6b4962e1a6b5c2b3aab9903d45226e51
+SHA256sum: 398a0bbb0b3d731935cdb404b02c463374ce4f114cdbed968992cd1d52e62041
 Description:  Announce services on the network with Zeroconf/Bonjour.
  This announces services such as ssh, sftp, and http running on the local machine
  to the network.
