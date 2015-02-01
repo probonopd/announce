@@ -11,9 +11,9 @@ Note that this could become obsolete once OpenWrt completes **mdns** and integra
 
 Downloading
 --
-Binaries built from this repository can be downloaded from http://probonopd.github.io/announce/.
+For trunk, announce is in the official OpenWrt packages feed and can be installed and enabled with `opkg install announce ; /etc/init.d/announce enable ; /etc/init.d/announce start`.
 
-To install the announce package, run
+For barrier breaker, run
 ```
 echo "src/gz announce http://probonopd.github.io/announce" >> /etc/opkg.conf
 opkg update
