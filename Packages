@@ -49,11 +49,11 @@ Depends: libc, libpthread
 Source: package/announce
 Section: utils
 Architecture: ramips_24kec
-Installed-Size: 9178
+Installed-Size: 9169
 Filename: announce_1.0-1_ramips_24kec.ipk
-Size: 9774
-MD5Sum: d00e14e77929c1afd0274d8102711c21
-SHA256sum: d5c3189f51db8779889901a42624df5a1a8c56120e5eed6fc7a914b551d60e5a
+Size: 9763
+MD5Sum: 64684ce904d43590ca95f41774ad9b9a
+SHA256sum: 5752afd28a548a44d3263bee8f9e9548c3fd9f9715d3c127726a58ee6ae12b7f
 Description:  Announce services on the network with Zeroconf/Bonjour.
  This announces services such as ssh, sftp, and http running on the local machine
  to the network.
