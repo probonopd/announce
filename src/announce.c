@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
 
     // readablename stays without ".local"
     char readablename[100 + 6];
-    strcat(readablename, hostname);
+    strcpy(readablename, hostname);
     printf("-->%s\n", readablename);
 
     // will not work if the hostname doesn't end in .local
