@@ -19,11 +19,11 @@ Depends: libc, libpthread
 Source: package/announce
 Section: utils
 Architecture: kirkwood
-Installed-Size: 8400
+Installed-Size: 8402
 Filename: announce_1.0-1_kirkwood.ipk
-Size: 9033
-MD5Sum: be3601745d6f68f52771bddfcacb0a97
-SHA256sum: 51f6267682ac8d14d73ff7f43fc556a23d8ef06e1110fba6771146b99f1c06bb
+Size: 9032
+MD5Sum: 42361c886f702d75bce62cd156a3c478
+SHA256sum: d67023f6d800d4f8dd65a598c811fbb1dfcebd1a2482f189672343746df04261
 Description:  Announce services on the network with Zeroconf/Bonjour.
  This announces services such as ssh, sftp, and http running on the local machine
  to the network.
