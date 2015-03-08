@@ -36,9 +36,9 @@ Section: utils
 Architecture: lantiq
 Installed-Size: 7594
 Filename: announce_1.0-1_lantiq.ipk
-Size: 8218
-MD5Sum: 274e6fe799f80f175887a2134bad213c
-SHA256sum: 194817a5c59fe84d4cef1a33579c3b6262e3ca7ff80020a29920051815f6fc39
+Size: 8216
+MD5Sum: 9b5690d3a58ecbba23a6c0a5fff2f35d
+SHA256sum: 43bfb7ef03b746c1a50d2b886200a3986cf93be4ffd01e8ff091da8f30339bb2
 Description:  Announce services on the network with Zeroconf/Bonjour.
  This announces services such as ssh, sftp, and http running on the local machine
  to the network.
