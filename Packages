@@ -4,11 +4,11 @@ Depends: libc, libpthread
 Source: package/announce
 Section: utils
 Architecture: ar71xx
-Installed-Size: 7602
+Installed-Size: 7597
 Filename: announce_1.0-1_ar71xx.ipk
-Size: 8226
-MD5Sum: 6b4962e1a6b5c2b3aab9903d45226e51
-SHA256sum: 398a0bbb0b3d731935cdb404b02c463374ce4f114cdbed968992cd1d52e62041
+Size: 8217
+MD5Sum: 4c842e7ac853ae8e9eba00dfaab3b45b
+SHA256sum: 70e6a52a773e25b8fe981f0287f2a46b26dc1077acf6a22f0650fb1a03973149
 Description:  Announce services on the network with Zeroconf/Bonjour.
  This announces services such as ssh, sftp, and http running on the local machine
  to the network.
