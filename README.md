@@ -3,6 +3,8 @@ announce [![Build Status](https://travis-ci.org/probonopd/announce.svg)](https:/
 
 Announce services on the network with Zeroconf/Bonjour with minimal overhead
 
+__NOTE:__ For OpenWrt there is now a dedicated `umdns`: https://openwrt.org/docs/guide-developer/mdns. So this repository is mainly for users who cannot use `umdns`.
+
 Description
 --
 This announces services such as ssh, sftp, and http running on the local machine to the network. Specifically geared toward embedded systems running OpenWrt. It is based on tinysvcmdns. 
